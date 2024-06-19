@@ -9,7 +9,7 @@ public class MicroDbContext : DbContext
     {        
     }
 
-    public virtual DbSet<Person>? Persons { get; set; }
+    public virtual DbSet<Person> Person { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {

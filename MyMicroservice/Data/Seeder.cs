@@ -7,7 +7,7 @@ public static class Seeder
 {
     public static void Seed(this MicroDbContext microDbContext)
     {
-        if (!microDbContext.Persons.Any())
+        if (!microDbContext.Person.Any())
         {
             Fixture fixture = new Fixture();
             fixture.Customize<Person>(person => person.Without(p => p.Id));
