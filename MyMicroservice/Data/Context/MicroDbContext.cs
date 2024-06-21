@@ -9,11 +9,11 @@ public class MicroDbContext : DbContext
     {        
     }
 
-    public virtual DbSet<Person> Person { get; set; }
+    public virtual DbSet<Persons> Persons { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        modelBuilder.Entity<Person>(entity => 
+        modelBuilder.Entity<Persons>(entity => 
         {
             base.OnModelCreating(modelBuilder);
 

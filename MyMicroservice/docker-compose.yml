@@ -2,8 +2,6 @@ services:
   api:
     container_name: mymicroservice
     image: mymicroservice
-    environment:
-      - MSSQL_SA_PASSWORD=VeryComplex123Password
     ports:
       - "3000:8080"
     networks:
@@ -18,8 +16,10 @@ services:
     environment: 
       - MSSQL_SA_PASSWORD=VeryComplex123Password
       - ACCEPT_EULA=Y
+      - MSSQL_PID=Developer
+      - MSSQL_AGENT_ENABLED=true
     ports:
-      - 1433:1433
+      - "1433:1433"
     networks:
       - micronet
     volumes:

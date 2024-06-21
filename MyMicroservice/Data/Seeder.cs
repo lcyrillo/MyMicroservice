@@ -7,12 +7,12 @@ public static class Seeder
 {
     public static void Seed(this MicroDbContext microDbContext)
     {
-        if (!microDbContext.Person.Any())
+        if (!microDbContext.Persons.Any())
         {
             Fixture fixture = new Fixture();
-            fixture.Customize<Person>(person => person.Without(p => p.Id));
+            fixture.Customize<Persons>(person => person.Without(p => p.Id));
 
-            List<Person> persons = fixture.CreateMany<Person>(100).ToList();
+            List<Persons> persons = fixture.CreateMany<Persons>(100).ToList();
             microDbContext.AddRange(persons);
             microDbContext.SaveChanges();
         }

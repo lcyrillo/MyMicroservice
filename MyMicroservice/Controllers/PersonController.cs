@@ -18,7 +18,7 @@ public class PersonController : ControllerBase
     [HttpGet]
     public IActionResult Get()
     {
-        var persons = _microDbContext.Person?.OrderBy(p => p.Id);
+        var persons = _microDbContext.Persons?.OrderBy(p => p.Id);
 
         return Ok(persons);
     }
@@ -26,7 +26,7 @@ public class PersonController : ControllerBase
     [HttpGet("{id}")]
     public IActionResult Get(int id)
     {
-        var persons = _microDbContext.Person?.Find(id);
+        var persons = _microDbContext.Persons?.Find(id);
 
         return Ok(persons);
     }
@@ -34,7 +34,7 @@ public class PersonController : ControllerBase
     [HttpPost]
     public IActionResult Post([FromBody] PersonRequest person)
     {
-        var newPerson = new Person
+        var newPerson = new Persons
         {
             FirstName = person.FirstName,
             LastName = person.LastName,
@@ -50,7 +50,7 @@ public class PersonController : ControllerBase
     [HttpPut]
     public IActionResult Put([FromQuery] int id, [FromBody] PersonRequest person)
     {
-        var updPerson = _microDbContext.Person?.Find(id);
+        var updPerson = _microDbContext.Persons?.Find(id);
 
         if (updPerson != null)
         {
@@ -68,7 +68,7 @@ public class PersonController : ControllerBase
     [HttpDelete]
     public IActionResult Delete([FromQuery] int id)
     {
-        var personToDelete = _microDbContext.Person?.Find(id);
+        var personToDelete = _microDbContext.Persons?.Find(id);
 
         if (personToDelete != null)
         {
